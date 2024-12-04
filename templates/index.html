@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unicode Lookup</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div id="container">
+        <h1>Unicode Character Lookup</h1>
+        <section>
+            <h2>How to Use</h2>
+            <p>Enter one of the following in the search box:</p>
+            <ul>
+                <li><strong>Character Name:</strong> Enter part or all of a character's official Unicode name.  You can
+                    use lowercase in your search (e.g., "THORN", "hiragana").</li>
+                <li><strong>Character:</strong> Enter the character itself (e.g., <code>ᚦ</code>, <code>か</code>).</li>
+                <li><strong>Codepoint:</strong> Enter the codepoint in hexadecimal (e.g., <code>U+16A6</code>,
+                    <code>U+304B</code>) or decimal (e.g., <code>5798</code>, <code>12363</code>).</li>
+            </ul>
+            <p>Click <strong>Search</strong> to see the results.</p>
+        </section>
+        <form method="post">
+            <input type="text" name="query" value="{{ query }}" placeholder="Enter name, character, or codepoint">
+            <button type="submit">Search</button>
+        </form>
+        <table>
+            <thead>
+                <tr>
+                    <th>Character</th>
+                    <th>Name</th>
+                    <th>Codepoint</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if results %}
+                    {% for result in results %}
+                    <tr>
+                        <td>{{ result.char }}</td>
+                        <td>{{ result.name }}</td>
+                        <td>{{ result.hex }} (dec: {{ result.cp }})</td>
+                    </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <td colspan="3" class="empty-result">No results found.</td>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

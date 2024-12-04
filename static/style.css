@@ -1,0 +1,57 @@
+/* General body styling */
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/* Container with maximum width relative to height */
+#container {
+    max-width: 70.7vh; /* Width cannot exceed height of the viewport */
+    width: 100%;      /* Allow it to shrink on smaller screens */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Optional: Add some visual distinction */
+#container {
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* General table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 1em;
+}
+
+thead {
+    background-color: #f2f2f2;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Styling for the empty-result message */
+.empty-result {
+    text-align: center;
+    font-style: italic;
+    color: #666; /* Gray text for subtlety */
+    background-color: #f9f9f9; /* Light background for emphasis */
+}
